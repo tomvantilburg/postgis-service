@@ -1,0 +1,53 @@
+{
+  "author": {
+    "name": "Nicklas Aven",
+    "email": "nicklas.aven@jordogskog.no",
+    "url": "http://www.jordogskog.no"
+  },
+  "name": "twkb",
+  "description": "TWKB format reader",
+  "version": "0.2.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "contributors": [
+    {
+      "name": "Javi Santana",
+      "email": "jsantana@cartodb.com",
+      "url": "http://javisantana.com"
+    },
+    {
+      "name": "Björn Harrtell",
+      "email": "bjorn@wololo.org"
+    },
+    {
+      "name": "Nicklass Aven",
+      "email": "nicklas.aven@jordogskog.no"
+    }
+  ],
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "build": "browserify src/twkb.js | uglifyjs --compress --output dist/twkb.min.js",
+    "test": "standard && mocha"
+  },
+  "devDependencies": {
+    "browserify": "11.0.0",
+    "standard": "4.5.4",
+    "mocha": "2.2.5",
+    "uglify-js": "2.4.24"
+  },
+  "optionalDependencies": {},
+  "standard": {
+    "ignore": [
+      "build",
+      "examples"
+    ],
+    "global": [ "TWKB", "describe", "it" ]
+  },
+  "engines": {
+    "node": "*"
+  }
+}

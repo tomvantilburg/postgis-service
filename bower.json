@@ -1,0 +1,22 @@
+{
+  "name": "postgis-service",
+  "homepage": "https://github.com/tomvantilburg/postgis-service",
+  "authors": [
+    "Tom van Tilburg <tom.van.tilburg@gmail.com>"
+  ],
+  "description": "A nodejs service for postgis",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "postgis",
+    "websocket"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

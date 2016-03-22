@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="../lib/twkb.js/dist/twkb.min.js"></script>
+</head>
+<body>
+<script>
+
+var ws = new WebSocket('wss://websocket.geodan.nl:443/postgisservice');
+
+ws.binaryType = 'arraybuffer';
+	
+function get_capabilities()
+{
+	ws.send(JSON.stringify({"request":"getcapabilities"}));
+	ws.onmessage = function (event) {
+	if(!(event.data instanceof ArrayBuffer))
+	{
+		d=JSON.parse(event.data);
+		if(d[0]=="capabilities")
+		{
+			console.log(JSON.stringify(d[1]));
+		}
+
+	}
+	};
+}
+
+function get_buildings(){
+	 	ws.send(JSON.stringify({"nr":1,"map_name":"buildings"}));
+	 	ws.onmessage = function (event) {
+			if(event.data instanceof ArrayBuffer) //ArrayBuffer? ok, then it is our geometry comming
+			{
+				var arr = new Uint8Array(event.data);
+				console.log(arr);
+				 var g = new twkb.toGeoJSON(arr);
+				console.log(g);
+			}
+			else {
+				console.log(event.data);
+			}
+			
+		};
+}
+
+</script>
+</body>
+
+</html>
